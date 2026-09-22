@@ -1,6 +1,35 @@
 #!/usr/bin/env python3
+from ex1 import HealingCreatureFactory, TransformCreatureFactory
+
 def main() -> None:
-    pass
+    healing_fac = HealingCreatureFactory()
+    base_heal = healing_fac.create_base()
+    evol_heal = healing_fac.create_evolved()
+    print("Testing Creature with healing capability")
+    print(" base:")
+    print(base_heal.describe())
+    print(base_heal.attack())
+    print(base_heal.heal())
+    print(" evolved:")
+    print(evol_heal.describe())
+    print(evol_heal.attack())
+    print(f"{evol_heal.heal()}\n")
+    trans_fac = TransformCreatureFactory()
+    base_trans = trans_fac.create_base()
+    evol_trans = trans_fac.create_evolved()
+    print("Testing Creature with transform capability")
+    print(" base:")
+    print(base_trans.describe())
+    print(base_trans.attack())
+    print(base_trans.transform())
+    print(base_trans.attack())
+    print(base_trans.revert())
+    print(" evolved:")
+    print(evol_trans.describe())
+    print(evol_trans.attack())
+    print(evol_trans.transform())
+    print(evol_trans.attack())
+    print(evol_trans.revert())
 
 
 if __name__ == "__main__":

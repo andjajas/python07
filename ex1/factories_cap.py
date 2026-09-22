@@ -1,16 +1,15 @@
 from ex0 import Creature, CreatureFactory
-from .capabilities import HealCapability, TransformCapability
 from .creatures_cap import Sproutling, Bloomelle, Shiftling, Morphagon
 
 
-class HealingCreatureFactory(CreatureFactory, HealCapability):
+class HealingCreatureFactory(CreatureFactory):
     def create_base(self) -> Creature:
         return Sproutling()
 
     def create_evolved(self) -> Creature:
         return Bloomelle()
 
-class TransformCreatureFactory(Creature, TransformCapability):
+class TransformCreatureFactory(CreatureFactory):
     def create_base(self) -> Creature:
         return Shiftling()
 
