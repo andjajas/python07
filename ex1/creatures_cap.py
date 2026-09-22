@@ -42,3 +42,22 @@ class Shiftling(Creature, TransformCapability):
             return f"{self.name} performs a boosted strike!"
         else:
             return f"{self.name} attacks normally."
+
+class Morphagon(Creature, TransformCapability):
+    def __init__(self) -> None:
+        Creature.__init__(self, "Morphagon", "Normal/Dragon")
+        self.form = False
+
+    def transform(self) -> str:
+        self.form = True
+        return f"{self.name} morphs into a dragonic battle form!"
+
+    def revert(self) -> str:
+        self.form = False
+        return f"{self.name} stabilizes its form."
+
+    def attack(self) -> str:
+        if self.form:
+            return f"{self.name} unleashes a devastating morph strike!"
+        else:
+            return f"{self.name} attacks normally."
