@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Creature(ABC):
     def __init__(self, name: str, element: str) -> None:
         self.name: str = name
@@ -35,6 +36,7 @@ class Aquabub(Creature):
 
     def attack(self) -> str:
         return f"{self.name} uses Water Gun!"
+
 
 class Torragon(Creature):
     def __init__(self) -> None:
