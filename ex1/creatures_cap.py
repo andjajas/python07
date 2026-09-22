@@ -25,4 +25,20 @@ class Bloomelle(Creature, HealCapability):
 
 
 class Shiftling(Creature, TransformCapability):
-    pass
+    def __init__(self) -> None:
+        Creature.__init__(self, "Shiftling", "Normal")
+        self.form = False
+
+    def transform(self) -> str:
+        self.form = True
+        return f"{self.name} shifts into a sharper form!"
+
+    def revert(self) -> str:
+        self.form = False
+        return f"{self.name} returns to normal."
+
+    def attack(self) -> str:
+        if self.form:
+            return f"{self.name} performs a boosted strike!"
+        else:
+            return f"{self.name} attacks normally."
