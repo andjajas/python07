@@ -39,6 +39,7 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print(
             "You can still evade this exception,"
-            " if you CTRL+C before this program runs")
+            " if you CTRL+C before this program runs"
+        )
     except Exception as e2:
         print(e2)

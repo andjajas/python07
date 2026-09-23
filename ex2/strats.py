@@ -19,7 +19,7 @@ class InvalidStrategyError(Exception):
         msg: str = (
             f"Battle error, aborting tournament: "
             f"Invalid Creature '{creature.name}' for this {strat} strategy"
-            )
+        )
         super().__init__(msg)
 
 
@@ -39,7 +39,10 @@ class AggressiveStrategy(BattleStrategy):
             return False
 
     def act(self, creature: Creature) -> None:
-        if self.is_valid(creature):
+        if (
+            self.is_valid(creature)
+            and isinstance(creature, TransformCapability)
+        ):
             print(creature.transform())
             print(creature.attack())
             print(creature.revert())
@@ -55,7 +58,7 @@ class DefensiveStrategy(BattleStrategy):
             return False
 
     def act(self, creature: Creature) -> None:
-        if self.is_valid(creature):
+        if self.is_valid(creature) and isinstance(creature, HealCapability):
             print(creature.attack())
             print(creature.heal())
         else:
